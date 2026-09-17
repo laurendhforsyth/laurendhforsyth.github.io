@@ -1,0 +1,41 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 800 300">
+<defs>
+<linearGradient
+  id="g"
+  x1="0"
+  x2="1">
+<stop
+  stop-color="#485b96"/>
+<stop
+  offset="1"
+  stop-color="#192f4a"/>
+</linearGradient>
+</defs>
+<rect
+  width="800"
+  height="300"
+  fill="url(#g)"/>
+<circle
+  cx="650"
+  cy="150"
+  r="100"
+  fill="none"
+  stroke="#fff"
+  stroke-opacity=".35"/>
+<path
+  d="M270 115c55-35 205-35 260 0l-22 92c-55 23-161 23-216 0z"
+  fill="#fff"
+  fill-opacity=".18"/>
+<circle
+  cx="365"
+  cy="158"
+  r="14"
+  fill="#fff"/>
+<circle
+  cx="435"
+  cy="158"
+  r="14"
+  fill="#fff"/>
+</svg>

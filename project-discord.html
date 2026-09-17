@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+      Discord Audio Broadcasting Bot | Lauren D. H. Forsyth
+    </title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Lauren D. H. Forsyth home">
+        <span class="brand-mark">
+          ✧
+        </span>
+        Lauren D. H. Forsyth
+      </a>
+      <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        ☰
+      </button>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="index.html">
+          Home
+        </a>
+        <a href="about.html">
+          About
+        </a>
+        <div class="nav-group">
+          <a href="projects.html">
+            Projects
+            <span aria-hidden="true">
+            </span>
+          </a>
+          <div class="dropdown">
+            <a href="project-dids.html">
+              Drowning In Dreams Studios
+            </a>
+            <a href="project-stitch.html">
+              Stitch Media/Games by Stitch
+            </a>
+            <a href="project-camping.html">
+              Camping Co.
+            </a>
+            <a href="project-discord.html">
+              Discord Audio Broadcasting Bot
+            </a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <a href="games.html">
+            Game Development
+            <span aria-hidden="true">
+            </span>
+          </a>
+          <div class="dropdown">
+            <a href="game-carry-on.html">
+              Carry On
+            </a>
+            <a href="game-path.html">
+              The Path to Heaven's Gate
+            </a>
+            <a href="game-daughter.html">
+              Daughter of Bones
+            </a>
+          </div>
+        </div>
+        <a class="search" href="contact.html" aria-label="Contact">
+          ⌕
+        </a>
+      </nav>
+    </header>
+    <main>
+      <section class="project-hero">
+        <div class="hero-inner">
+          <div class="eyebrow">
+            Selected work
+          </div>
+          <h1 class="page-title">
+            Discord Audio Broadcasting Bot
+          </h1>
+          <p>
+            A Discord bot built with JavaScript and discord.js to broadcast audio to voice channels.
+          </p>
+        </div>
+      </section>
+      <section class="project-content">
+        <h2 id="project-overview">
+          Project overview
+        </h2>
+        <p>
+          The implementation includes environment-based configuration, voice channel joining, audio playback controls and diagnostics for monitoring player state.
+        </p>
+
+        <h2>Table of Contents</h2>
+        <ul>
+          <li><a href="#overview">Overview</a></li>
+          <li><a href="#the-architecture">The Architecture</a></li>
+          <li><a href="#slash-commands">Slash Commands</a></li>
+          <li><a href="#pm2-its-involvement">PM2 &amp; Its Involvement</a></li>
+          <li><a href="#iteration-problem-solving">Iteration &amp; Problem Solving</a></li>
+          <li><a href="#optimizing-the-startup-sequence">Optimizing the Startup Sequence</a></li>
+          <li><a href="#refining-the-user-experience">Refining the User Experience</a></li>
+          <li><a href="#testing-process">Testing Process</a></li>
+          <li><a href="#completed-project-code-index-js">Completed Project Code - index.js</a></li>
+          <li><a href="#outcomes-next-steps">Outcomes &amp; Next Steps</a></li>
+        </ul>
+
+        <img src="https://lh3.googleusercontent.com/sitesv/AG8ngQUDJJWx1nhkxPYGS6kGjebUcdMxNx7GvINgavDI644hR8NOs41bPqWwNmm864CT535AuV_7TIw46Ft20ZmzPKSElbOVZoxUazRm8fsxscoAS3H5zxIG0jDB4VWewyFkpLTYSmLJx3u-swZXT6hMZ3xY4OzvA5U73nCy6csahNWvP8azuBeim4z8YccK7NCChN-Qw3jMSd85CeILF6xg6EBh9hpqRNmfp5kwPieEg1M=w1280" alt="Discord audio broadcasting bot diagram" style="max-width: 100%; height: auto; margin: 1.5rem 0; display: block;">
+
+        <img src="https://lh3.googleusercontent.com/sitesv/AG8ngQUQTF8vYt9q3GeVoUdOfE6pSPoTIX21SfiLkL3GtJ1vB7NjevRZuEZopL6SXNdVMqrbo-kvzwKI_dooCaezA1suwTzjYUm9qAorIxWltRVVP8fpzE6PDdFQu92cIAqDlesFle8bANZZ9oaV54hCyzyf6HJgXURdGAb0-ZY6e196wpgfKBfPg0ZS04cpUrw9PRdfqgRkMYMt5YxMXpXuGmo6FXnrqKyMPLr_DdiKQdo=w1280" alt="Discord voice channel setup illustration" style="max-width: 100%; height: auto; margin: 1.5rem 0; display: block;">
+
+        <img src="https://lh3.googleusercontent.com/sitesv/AG8ngQX2s1mTOChBgg0CbQXfQHk92C6cRUL1sJK4DM2-q_WsDoBza7ynZchluFVlvalHh1nwyorQVvSyOpkIeEhxAFUcylngGh-gC2x12FGK3-8mcvsSGvdXDRcpLIYg5hZnDMnn4Qu9tVXzd7TRbUsrX9fk1s7WR_dR49nc9vOL7dm05RI2v5SebePuHH9w4R246plGYINyWtHhI9mbzr8Kmr_LRqdQHEBvWZ7BC4GfRAk=w1280" alt="Discord audio broadcasting bot architecture screenshot" style="max-width: 100%; height: auto; margin: 1.5rem 0; display: block;">
+
+        <h2 id="overview">Overview</h2>
+        <p>
+          <strong>Task:</strong> A scalable, multi-instance Node.js audio broadcasting system designed to relay a high-quality voice stream across up to 12+ Discord channels simultaneously.
+        </p>
+        <p>
+          <strong>Role:</strong> Systems Architect &amp; Developer
+        </p>
+        <p>
+          <strong>Tech Stack:</strong> Node.js, Discord.js (v14), @discordjs/voice, PM2
+        </p>
+        <p>
+          [insert image showing the Broadcaster bot and 12 Repeater bots actively sitting in a list of consecutive Discord voice channels here]
+        </p>
+
+        <h2 id="the-architecture">The Architecture</h2>
+        <p>
+          Building a bot to join a voice channel is straightforward. Building a synchronized fleet of 13 bots requires a robust architectural approach to audio routing and process management. The system is split into two core components:
+        </p>
+        <ul>
+          <li>The Master Broadcaster: A primary client that listens for slash commands, joins the user's active voice channel, and captures their incoming audio stream using an Opus-encoded AudioResource.</li>
+          <li>The Repeater Fleet: 12 independent worker clients managed concurrently.</li>
+        </ul>
+        <p>
+          Instead of processing and piping the audio 12 individual times—which would severely bottleneck CPU and memory—the Master feeds a single globalAudioPlayer. The 12 workers then simply subscribe to this global player. This fan-out architecture ensures near-zero latency between channels, regardless of how many repeaters are deployed.
+        </p>
+
+        <h3 id="slash-commands">Slash Commands</h3>
+        <p>
+          /broadcast - Connects the broadcaster and 12 repeaters to the voice channels.
+        </p>
+        <p>
+          /broadcastonly - Only connects the repeaters to the voice channels without the broadcaster required.
+        </p>
+        <p>
+          /endbroadcast - Ends the broadcast and disconnects all the bots from the Discord server.
+        </p>
+
+        <h3 id="pm2-its-involvement">PM2 &amp; Its Involvement</h3>
+        <p>
+          Running 13 concurrent Discord client connections within a single application demands rock-solid stability, as well as keeping all 13 bots up and running 24/7 as much as possible with little to no interaction. While Node.js is excellent at handling asynchronous network operations, a single unhandled exception or a sudden Discord API timeout could crash the process, dropping the broadcaster and all 12 repeaters simultaneously.
+        </p>
+        <p>
+          To mitigate this risk, the deployment relies on PM2, an advanced production process manager for Node.js. Rather than running the bot in a fragile, active terminal session, PM2 daemonizes the application, ensuring it runs persistently in the background.
+        </p>
+        <p>
+          Integrating PM2 solved several key deployment challenges:
+        </p>
+        <ul>
+          <li>Zero-Downtime Recovery: If the script ever encounters a fatal error or memory leak, PM2's auto-restart functionality instantly reboots the process, bringing the entire fleet back online without manual intervention.</li>
+          <li>Environment Management: Securely handling 13 distinct bot tokens is complex. PM2 securely and consistently injects the required environment variables (MASTER_TOKEN, WORKER_1 through WORKER_12) directly into the production environment.</li>
+          <li>Resource Monitoring: By utilizing the pm2 monit dashboard, I can track the fleet's memory footprint and CPU usage in real-time—a crucial capability when managing the overhead of 13 active Opus audio streams.</li>
+        </ul>
+        <p>
+          Because this project was for personal usage, I transferred the PM2 manager onto a separate computer where I can remote in, rather than running it on my personal computer. Running it on my personal computer comes with certain risks, some of the most obvious being if my computer decides to update overnight and restarts at 6am, all the bots will be down until 4am the next day, which is unacceptable. It also uses up my personal computer resources, while this way the bots are essentially being hosted on a server somewhere - except in this case the server is another computer in my house.
+        </p>
+        <p>
+          [insert image showing the PM2 terminal dashboard (pm2 monit) with the bot process running, highlighting a stable memory footprint and uptime here]
+        </p>
+
+        <img src="https://lh3.googleusercontent.com/sitesv/AG8ngQXma2MvSf4fj30_WHASzah68uMPKahQJkWkexjaTXfXi7Z5ASWrghfLBwGb9OhRkLxW_hRQfchTx4IlvlbO1--Kops4pn6lxBNSxBWEbhvWiBykPUHaJa03Brac59E4is8H4rpevvyxxDjhCsDBB3_umj8FNxYQqZNyPH5IryyqpJPmhj_Rd6lbos8cdSeiuSl-tyz7zEZZTBIotoYcILU-Xck4HFRH9-rNlmnX=w1280" alt="PM2 monitoring dashboard screenshot" style="max-width: 100%; height: auto; margin: 1.5rem 0; display: block;">
+
+        <h2 id="iteration-problem-solving">Iteration &amp; Problem Solving</h2>
+        <p>
+          During development, getting the bots connected was only half the battle. The core challenges revolved around optimization and user experience.
+        </p>
+
+        <h3 id="optimizing-the-startup-sequence">Optimizing the Startup Sequence</h3>
+        <p>
+          A core project requirement was ensuring the 13 bots appeared at the very top of the voice channels for easy visibility. Because Discord sorts alphabetically and recently blocked special characters (like ! or _) in base bot usernames, I had to rely on server nicknames to force them to the top.
+        </p>
+        <p>
+          For servers the bots were already in, kicking and re-inviting them to update permissions was impractical. Instead, I leveraged the servers' default nickname permissions and ran a one-off loop to prepend an underscore to their names (e.g., changing "Broadcaster" to "_Broadcaster"). This immediately bumped them to the top of the UI.
+        </p>
+        <p>
+          The challenge then became automating this for any future servers the bots joined without bottlenecking the system. Running an auto-nickname check during the startup loop for 13 simultaneous PM2 instances would hammer the Discord API and risk severe rate-limiting.
+        </p>
+        <p>
+          To solve this, I stripped the nickname logic out of the boot sequence entirely and bound it exclusively to the guildCreate event. Now, each bot requests its _ nickname exactly once - the moment it joins a new server. This keeps the startup sequence incredibly lightweight and completely eliminates redundant API calls.
+        </p>
+
+        <pre><code>// Auto-Nickname Workers (Executes strictly on server join to prevent redundant API calls)
+
+for (let i = 1; i &lt;= 12; i++) {
+
+  const worker = new Client({ intents });
+
+  worker.on("guildCreate", async (guild) =&gt; {
+
+    try {
+
+      await guild.members.me.setNickname(`_Repeater ${i}`);
+
+      console.log(`Worker ${i} successfully nicknamed itself in ${guild.name}`);
+
+    } catch (error) {
+
+      console.log(`Note: Missing permissions to nickname Worker ${i}`);
+
+    }
+
+  });
+
+  worker.login(process.env[`WORKER_${i}`]);
+
+  workerBots.push(worker);
+
+}</code></pre>
+
+        <h3 id="refining-the-user-experience">Refining the User Experience</h3>
+        <p>
+          Command spam is a major issue with multi-bot systems. Traditional prefix commands (e.g., !broadcast) leave lingering text in the server's channels that are available for everyone to see regardless of who used the command, degrading the chat experience for standard users. To solve this, I migrated the entire control schema to Discord's native Slash Commands. By utilizing the interactionCreate event, the system can now respond with ephemeral: true flags. This pivot means administrators can deploy and recall the entire 13-bot fleet silently. The server text channels remain perfectly clean, and the command feedback is localized entirely to the user controlling the broadcast.
+        </p>
+
+        <pre><code>// Silent deployment via Ephemeral replies
+
+if (interaction.commandName === "broadcast") {
+
+  // ... deployment logic ...
+
+  return interaction.reply({
+
+    content: `Fleet deployed. Broadcaster in **${masterChannel.name}**, repeaters cascading downward. Type **/endbroadcast** to disconnect them.`,
+
+    ephemeral: true,
+
+  });
+
+}</code></pre>
+
+        <img src="https://lh3.googleusercontent.com/sitesv/AG8ngQURbc_SEZcYG_7UQq_C2OfhRqJQHEQEDh20eWO0nZWvdHKvvdqOM-DzgkEFRmg6_G1p-sAzdYrcAUwkjamIkp5yBsBADUp0WgXJsnZANKxChJ8XEru2uFN7ZcZlaYoH8EpXkHro0fG10BRCjecwrfm8tqWYp_OUFUvafmtrBmHShuIhR_5JixS-_kO1_BvbxHHoHBsqyX4cQ98_O4FES--QswpDMaNgrin91gqL=w1280" alt="Discord command slash interface screenshot" style="max-width: 100%; height: auto; margin: 1.5rem 0; display: block;">
+
+        <img src="https://lh3.googleusercontent.com/sitesv/AG8ngQXuHj9p2PXjtwZClpxUDGYYAv7QNL7JtK75DFEi6hy5pK2kzWsettHWl7ySvg5yW3lIOPUOZzsg2n2jzQcdpP4YxdggKgMZvuohJzGAy77Ev5fgqv7Ai855LONiP-ePIQyK5xx2OrBDENMwwdNSnLSPcvi6Yl2CFGZhWc6xM4rsZPDb1_fq2uc08z50Qnv_1__PioWpmxOlMwS3IEZmUDSGMCCjcExKlfaHonvB5ss=w1280" alt="Broadcast system response screenshot" style="max-width: 100%; height: auto; margin: 1.5rem 0; display: block;">
+
+        <h2 id="testing-process">Testing Process</h2>
+        <p>
+          Initial testing was handled locally by running the application directly from the terminal. This brought the entire 13-bot fleet online within a dedicated test server, while also keeping them available in the production server for larger scale load testing. To validate the audio routing, I would join the primary voice channel and initialize the broadcast command. Using an alternate account on Discord Canary in a secondary voice channel, I could speak into my primary microphone and monitor the repeater output in real time to ensure latency remained low and audio quality was high.
+        </p>
+        <p>
+          After establishing stable local performance, I migrated the project to a secondary remote machine for persistent background hosting via PM2. This setup provided a highly efficient iterative workflow. To implement updates, I would pause the remote PM2 process, run the bots locally for development and testing, and then deploy the finalized code back to the remote machine. A quick PM2 restart would then bring the upgraded fleet back online.
+        </p>
+
+        <h2 id="completed-project-code-index-js">Completed Project Code - index.js</h2>
+
+        <h2 id="outcomes-next-steps">Outcomes &amp; Next Steps</h2>
+        <p>
+          Building this 13-bot broadcasting fleet was a rigorous exercise in concurrent process management. The project required navigating the specific intricacies of the @discordjs/voice lifecycle, particularly when managing persistent audio subscriptions with manual end behaviors. It also highlighted the critical importance of resource cleanup, ensuring that all 13 active voice connections are gracefully destroyed upon command to prevent memory leaks and hanging background processes.
+        </p>
+        <p>
+          While the core application is built and ready to use, there are a few loose ends to wrap up before official deployment:
+        </p>
+        <ul>
+          <li>Cross-Server Termination: I am updating the /endbroadcast logic so that it successfully disconnects the repeater bots from all active servers simultaneously, rather than just the server where the command was originally issued.</li>
+          <li>Final Stress Test: I will conduct one last large scale load test to verify audio latency and overall system stability under full capacity.</li>
+        </ul>
+        <p>
+          Once these final adjustments are implemented, the broadcasting system will be completely operational.
+        </p>
+
+        <a class="button dark" href="projects.html">
+          Back to projects
+        </a>
+      </section>
+    </main>
+    <footer>
+      <span>
+        © Lauren D. H. Forsyth
+      </span>
+      <a href="contact.html">
+        Get in touch
+      </a>
+    </footer>
+    <script src="script.js">
+    </script>
+  </body>
+</html>

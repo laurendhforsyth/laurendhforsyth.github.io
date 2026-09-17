@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+      Drowning In Dreams Studios | Lauren D. H. Forsyth
+    </title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Lauren D. H. Forsyth home">
+        <span class="brand-mark">
+          ✧
+        </span>
+        Lauren D. H. Forsyth
+      </a>
+      <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        ☰
+      </button>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="index.html">
+          Home
+        </a>
+        <a href="about.html">
+          About
+        </a>
+        <div class="nav-group">
+          <a href="projects.html">
+            Projects
+            <span aria-hidden="true">
+            </span>
+          </a>
+          <div class="dropdown">
+            <a href="project-dids.html">
+              Drowning In Dreams Studios
+            </a>
+            <a href="project-stitch.html">
+              Stitch Media/Games by Stitch
+            </a>
+            <a href="project-camping.html">
+              Camping Co.
+            </a>
+            <a href="project-discord.html">
+              Discord Audio Broadcasting Bot
+            </a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <a href="games.html">
+            Game Development
+            <span aria-hidden="true">
+            </span>
+          </a>
+          <div class="dropdown">
+            <a href="game-carry-on.html">
+              Carry On
+            </a>
+            <a href="game-path.html">
+              The Path to Heaven's Gate
+            </a>
+            <a href="game-daughter.html">
+              Daughter of Bones
+            </a>
+          </div>
+        </div>
+        <a class="search" href="contact.html" aria-label="Contact">
+          ⌕
+        </a>
+      </nav>
+    </header>
+    <main>
+      <section class="project-hero">
+        <div class="hero-inner">
+          <div class="eyebrow">
+            Selected work
+          </div>
+          <h1 class="page-title">
+            Drowning In Dreams Studios
+          </h1>
+          <p>
+            A work-in-progress website for a digital content studio, recreated from
+            SquareSpace with HTML, CSS and JavaScript.
+          </p>
+        </div>
+      </section>
+      <section class="project-content">
+        <h2>
+          Project overview
+        </h2>
+        <p>
+          Drowning In Dreams Studios (DIDS) is a company that I came up with
+          several years ago to have a place to post video game tutorials and
+          creation videos. DIDS creates digital content, YouTube videos, video
+          game playthroughs and more.
+        </p>
+        <p>
+          The DIDS website is still a work in progress. It is coded using HTML,
+          CSS and JavaScript and hosted using GitHub. The code editor used is
+          Atom. The website was originally hosted using SquareSpace, but moved
+          to a free hosting platform using code instead of a CMS.
+        </p>
+
+        <h2>
+          Page and content organization
+        </h2>
+        <p>
+          DIDS has a lot of content, so the website had to be organized
+          appropriately in order to keep it easy to navigate. The main content
+          is organized into the following categories:
+        </p>
+        <ol>
+          <li>Gaming videos (YouTube)</li>
+          <li>Video game development</li>
+          <li>Art portfolio</li>
+          <li>Blog</li>
+          <li>
+            Information about DIDS, including contact information and an about
+            blurb
+          </li>
+        </ol>
+        <p>
+          Since the content and design were being transferred from SquareSpace,
+          I already had a good idea of what I wanted the website to look like.
+          The main work was recreating it with front-end technologies,
+          formatting the migrating content appropriately and making the website
+          as accessible as possible. Having never worked on accessibility
+          before, this last part was a challenge.
+        </p>
+
+        <h2>
+          The plan
+        </h2>
+        <ol>
+          <li>Set up the project in GitHub and transfer over the domain name.</li>
+          <li>
+            Code a base page layout for new pages so they remain consistent:
+            <ol>
+              <li>Theme</li>
+              <li>Header</li>
+              <li>Footer</li>
+              <li>Base body content</li>
+              <li>Stylesheet links for base styling</li>
+            </ol>
+          </li>
+          <li>
+            Code the base stylesheet that provides styling for every page.
+          </li>
+          <li>
+            Create the pages and link them together, updating and reusing the
+            base layout for a complete navigation bar.
+          </li>
+          <li>
+            Recreate pages using the base layout and copy the content over.
+          </li>
+          <li>
+            Update stylesheets to ensure the pages look good at different screen
+            sizes.
+          </li>
+          <li>Add accessibility code.</li>
+        </ol>
+
+        <h2>
+          Current progress
+        </h2>
+        <p>
+          Currently I am on step 5: recreating each page. I have completed the
+          home and about pages and am currently working on the games page,
+          including each game's subpages. Some content has already been written
+          for those pages, but it needs updating, along with adding more images.
+        </p>
+
+        <h2>
+          Troubleshooting
+        </h2>
+        <p>
+          To troubleshoot publishing delays, I added a version number to the
+          homepage that I update so I know when the live website has been
+          updated.
+        </p>
+        <p>
+          One of the first issues I had was with the URLs that were created. As
+          I own the domain
+          <a href="http://drowningindreamsstudios.com/">drowningindreamsstudios.com</a>,
+          the subpages were a problem because of how GitHub displayed their
+          URLs. GitHub does not automatically use the HTML file name as the URL;
+          instead, it adds an additional path with the same name. For example,
+          rather than
+          <code>drowningindreamsstudios.com/about</code>, GitHub created
+          <code>drowningindreamsstudios.com/about/about</code>.
+        </p>
+        <p>
+          To bypass this, I put each HTML file into its own folder. It is a bit
+          less tidy on the backend, but it produces the URL I wanted. This also
+          meant reworking the navigation bar links because every page was now
+          in an additional folder. Once that was completed, everything worked
+          and looked as expected.
+        </p>
+        <p>
+          Since DIDS is constantly being worked on, content needs to be updated
+          frequently. My current issue is keeping on top of the ever-changing
+          content workload.
+        </p>
+        <a class="button dark" href="projects.html">
+          Back to projects
+        </a>
+      </section>
+    </main>
+    <footer>
+      <span>
+        © Lauren D. H. Forsyth
+      </span>
+      <a href="contact.html">
+        Get in touch
+      </a>
+    </footer>
+    <script src="script.js">
+    </script>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 800 300">
+<defs>
+<linearGradient
+  id="g"
+  x1="0"
+  x2="1">
+<stop
+  stop-color="#7c9a81"/>
+<stop
+  offset="1"
+  stop-color="#284d4a"/>
+</linearGradient>
+</defs>
+<rect
+  width="800"
+  height="300"
+  fill="url(#g)"/>
+<path
+  d="M130 240 305 55l175 185z"
+  fill="#fff"
+  fill-opacity=".2"/>
+<path
+  d="M420 240 565 95l145 145z"
+  fill="#fff"
+  fill-opacity=".28"/>
+<path
+  d="M0 250h800"
+  stroke="#fff"
+  stroke-opacity=".35"
+  stroke-width="3"/>
+</svg>
