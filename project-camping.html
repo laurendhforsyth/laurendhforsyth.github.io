@@ -26,14 +26,29 @@
         ☰
       </button>
       <nav class="nav" aria-label="Main navigation">
-        <a href="index.html"> Home </a>
-        <a href="about.html"> About </a>
+        <div class="nav-root">
+          <a href="index.html"> Home </a>
+          <a href="about.html"> About </a>
+        </div>
         <div class="nav-group">
-          <a href="projects.html">
-            Projects
-            <span aria-hidden="true"> </span>
-          </a>
-          <div class="dropdown">
+          <a class="nav-group-link" href="projects.html"> Projects </a>
+          <button
+            class="nav-submenu-toggle"
+            type="button"
+            aria-label="Open Projects submenu"
+            aria-expanded="false"
+            aria-controls="projects-submenu"
+          >
+            <span aria-hidden="true">›</span>
+          </button>
+          <div class="dropdown" id="projects-submenu">
+            <div class="submenu-header">
+              <button class="submenu-back" type="button">
+                <span aria-hidden="true">‹</span>
+                Back
+              </button>
+              <h2 tabindex="-1">Projects</h2>
+            </div>
             <a href="project-dids.html"> Drowning In Dreams Studios </a>
             <a href="project-stitch.html"> Stitch Media/Games by Stitch </a>
             <a href="project-camping.html"> Camping Co. </a>
@@ -41,11 +56,24 @@
           </div>
         </div>
         <div class="nav-group">
-          <a href="games.html">
-            Game Development
-            <span aria-hidden="true"> </span>
-          </a>
-          <div class="dropdown">
+          <a class="nav-group-link" href="games.html"> Game Development </a>
+          <button
+            class="nav-submenu-toggle"
+            type="button"
+            aria-label="Open Game Development submenu"
+            aria-expanded="false"
+            aria-controls="games-submenu"
+          >
+            <span aria-hidden="true">›</span>
+          </button>
+          <div class="dropdown" id="games-submenu">
+            <div class="submenu-header">
+              <button class="submenu-back" type="button">
+                <span aria-hidden="true">‹</span>
+                Back
+              </button>
+              <h2 tabindex="-1">Game Development</h2>
+            </div>
             <a href="game-carry-on.html"> Carry On </a>
             <a href="game-heavens-gate.html"> The Path to Heaven's Gate </a>
             <a href="game-daughter-of-bones.html"> Daughter of Bones </a>
