@@ -7,7 +7,7 @@
   --paper: #f8fafb;
   --white: #fff;
   --accent: #e07a5f;
-  --accent-dark: #c85d43;
+  --accent-dark: #a8432c;
   --serif: "Libre Baskerville", Georgia, serif;
   --sans: "DM Sans", Arial, sans-serif;
 }
@@ -16,6 +16,11 @@
 }
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+main[id],
+:target {
+  scroll-margin-top: 90px;
 }
 body {
   margin: 0;
@@ -27,9 +32,31 @@ body {
 a {
   color: inherit;
 }
-a:focus-visible, button:focus-visible {
-  outline: 3px solid #f2b19c;
-  outline-offset: 4px;
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 10;
+  padding: 0.65rem 1rem;
+  transform: translateY(calc(-100% - 1rem));
+  border-radius: 4px;
+  background: var(--white);
+  color: var(--navy-dark);
+  font-weight: 700;
+}
+.skip-link:focus {
+  transform: translateY(0);
+}
+:focus-visible {
+  outline: 3px solid var(--white);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 6px var(--navy-dark);
+  scroll-margin-block: 90px;
+}
+main:focus {
+  outline: 3px solid var(--navy-dark);
+  outline-offset: -3px;
+  box-shadow: none;
 }
 .site-header {
   height: 74px;
@@ -82,7 +109,10 @@ a:focus-visible, button:focus-visible {
   background: none;
   border: 0;
   cursor: pointer;
-  padding: 26px 0;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0;
   transition: color .2s ease;
 }
 .nav a:hover, .nav button:hover {
@@ -144,6 +174,9 @@ a:focus-visible, button:focus-visible {
   background: none;
   border: 0;
   font-size: 25px;
+  min-width: 44px;
+  min-height: 44px;
+  cursor: pointer;
 }
 .hero, .about-hero, .project-hero {
   background: var(--navy);
@@ -200,9 +233,9 @@ a:focus-visible, button:focus-visible {
 }
 .button {
   display: inline-block;
-  background: var(--accent);
-  color: var(--white);
-  border: 1px solid var(--accent);
+  background: #f2b19c;
+  color: var(--navy-dark);
+  border: 1px solid #f2b19c;
   border-radius: 5px;
   padding: 11px 21px;
   text-decoration: none;
@@ -211,14 +244,15 @@ a:focus-visible, button:focus-visible {
   transition: background .2s ease, transform .2s ease, box-shadow .2s ease;
 }
 .button:hover {
-  background: var(--accent-dark);
-  border-color: var(--accent-dark);
+  background: #f5c5b5;
+  border-color: #f5c5b5;
   transform: translateY(-2px);
   box-shadow: 0 8px 16px rgba(16,42,67,.18);
 }
 .button.dark {
   background: var(--navy);
   border-color: var(--navy);
+  color: var(--white);
   margin: 32px 0 16px;
 }
 .button.outline {
@@ -280,6 +314,7 @@ a:focus-visible, button:focus-visible {
   color: var(--accent-dark);
   font-weight: 700;
   text-underline-offset: 3px;
+  padding: 4px 0;
 }
 .cards {
   display: grid;
@@ -427,8 +462,8 @@ a:focus-visible, button:focus-visible {
   margin-top: 20px;
 }
 .socials a {
-  width: 35px;
-  height: 35px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   display: grid;
   place-items: center;
@@ -450,10 +485,15 @@ a:focus-visible, button:focus-visible {
   width: calc(100% - 64px);
   max-width: 816px;
   height: 1100px;
-  margin: 0 auto 88px;
+  margin: 0 auto 1rem;
   border: 1px solid var(--line);
   border-radius: 8px;
   background: var(--white);
+}
+.resume-fallback {
+  width: calc(100% - 64px);
+  max-width: 816px;
+  margin: 0 auto 88px;
 }
 .resume-list {
   border-top: 1px solid var(--line);
@@ -480,11 +520,89 @@ a:focus-visible, button:focus-visible {
 .project-hero p {
   color: #d8e4ec;
 }
+.project-facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.2rem 1.5rem;
+  margin: 32px 0 28px;
+  max-width: 950px;
+}
+.project-facts div {
+  border-top: 1px solid rgba(255,255,255,.22);
+  padding-top: 14px;
+}
+.project-facts dt {
+  font: 700 11px var(--sans);
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: #f2b19c;
+  margin-bottom: 8px;
+}
+.project-facts dd {
+  margin: 0;
+  color: #edf5fa;
+  font-size: 15px;
+  line-height: 1.6;
+}
 .project-content {
   width: calc(100% - (2 * clamp(1.5rem, 8vw, 8rem)));
   max-width: 1120px;
   margin: auto;
   padding: 75px 0;
+}
+.project-content pre {
+  max-width: 100%;
+  overflow-x: auto;
+}
+.project-intro {
+  display: grid;
+  grid-template-columns: minmax(240px, 1fr) minmax(0, 2fr);
+  gap: 32px;
+  align-items: center;
+  margin-bottom: 32px;
+}
+.project-overview {
+  min-width: 0;
+}
+.project-branding {
+  display: grid;
+  gap: 18px;
+}
+.objective-branding {
+  margin: 26px 0 0;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+.project-brand-logo {
+  display: block;
+  width: 100%;
+  max-width: 420px;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+  object-fit: contain;
+  padding: 0;
+  margin: 0 auto;
+}
+.project-brand-card {
+  margin: 0;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--white);
+  overflow: hidden;
+  box-shadow: 0 12px 28px rgba(16,42,67,.06);
+}
+.project-brand-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  background: #fff;
+}
+.project-brand-card figcaption {
+  padding: 12px 14px 15px;
+  font-size: 14px;
+  color: var(--muted);
 }
 .project-content h2 {
   font: 700 21px var(--serif);
@@ -496,8 +614,20 @@ a:focus-visible, button:focus-visible {
   color: var(--navy);
   margin-top: 30px;
 }
-.project-content ul {
+.project-content p,
+.project-content li {
+  color: var(--ink);
+}
+.project-content ul,
+.project-content ol {
   padding-left: 22px;
+  margin: 18px 0 24px;
+}
+.project-content li + li {
+  margin-top: 8px;
+}
+.project-content strong {
+  color: var(--navy);
 }
 .quote {
   border-left: 4px solid var(--accent);
@@ -518,14 +648,19 @@ footer {
 footer a {
   color: var(--accent-dark);
   font-weight: 700;
-  text-decoration: none;
+  text-underline-offset: 3px;
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
 }
 @media (max-width: 760px) {
   .site-header {
     padding: 0 1.2rem;
   }
   .menu-toggle {
-    display: block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
   .nav {
     display: none;
@@ -549,6 +684,7 @@ footer a {
     flex-direction: column;
   }
   .nav a, .nav button {
+    min-height: 44px;
     padding: 10px 0;
     text-align: left;
   }
@@ -573,6 +709,13 @@ footer a {
   }
   .nav-submenu-toggle span {
     line-height: 1;
+  }
+  .project-facts {
+    grid-template-columns: 1fr;
+  }
+  .project-intro,
+  .objective-wrap {
+    grid-template-columns: 1fr;
   }
   .dropdown {
     display: none;
@@ -647,6 +790,10 @@ footer a {
     width: calc(100% - 46px);
     max-width: 816px;
     height: 900px;
+    margin-bottom: 1rem;
+  }
+  .resume-fallback {
+    width: calc(100% - 46px);
     margin-bottom: 62px;
   }
   .portrait {
@@ -666,6 +813,19 @@ footer a {
   footer {
     margin: 0 20px;
     padding: 20px 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
 @media (max-width: 420px) {

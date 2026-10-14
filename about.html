@@ -13,19 +13,22 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
     <header class="site-header">
       <a class="brand" href="index.html" aria-label="Lauren D. H. Forsyth home">
-        <span class="brand-mark"> ✧ </span>
+        <span class="brand-mark" aria-hidden="true"> ✧ </span>
         Lauren D. H. Forsyth
       </a>
       <button
         class="menu-toggle"
-        aria-label="Toggle navigation"
+        type="button"
+        aria-label="Open main menu"
+        aria-controls="site-navigation"
         aria-expanded="false"
       >
-        ☰
+        <span aria-hidden="true">&#9776;</span>
       </button>
-      <nav class="nav" aria-label="Main navigation">
+      <nav class="nav" id="site-navigation" aria-label="Main navigation">
         <div class="nav-root">
           <a href="index.html"> Home </a>
           <a href="about.html"> About </a>
@@ -43,7 +46,11 @@
           </button>
           <div class="dropdown" id="projects-submenu">
             <div class="submenu-header">
-              <button class="submenu-back" type="button">
+              <button
+                class="submenu-back"
+                type="button"
+                aria-label="Back to main navigation"
+              >
                 <span aria-hidden="true">‹</span>
                 Back
               </button>
@@ -69,7 +76,11 @@
           </button>
           <div class="dropdown" id="games-submenu">
             <div class="submenu-header">
-              <button class="submenu-back" type="button">
+              <button
+                class="submenu-back"
+                type="button"
+                aria-label="Back to main navigation"
+              >
                 <span aria-hidden="true">‹</span>
                 Back
               </button>
@@ -83,10 +94,10 @@
         <a class="search" href="contact.html" aria-label="Contact"> ⌕ </a>
       </nav>
     </header>
-    <main>
+    <main id="main-content" tabindex="-1">
       <section class="about-hero">
         <div class="about-grid">
-          <div class="portrait" role="img" aria-label="Portrait of Lauren">
+          <div class="portrait">
             <img src="assets/profileimg.png" alt="Portrait of Lauren" />
           </div>
           <div>
@@ -103,11 +114,14 @@
               project needs and technical advancements.
             </p>
             <div class="socials">
-              <a href="mailto:laurendhforsyth@gmail.com"> ✉ </a>
+              <a href="mailto:laurendhforsyth@gmail.com" aria-label="Email Lauren">
+                <span aria-hidden="true">✉</span>
+              </a>
               <a
                 href="https://linkedin.com/in/lauren-dh-forsyth/"
                 target="_blank"
                 rel="noreferrer"
+                aria-label="Lauren on LinkedIn"
               >
                 in
               </a>
@@ -115,8 +129,9 @@
                 href="https://bsky.app/profile/laurendhf.bsky.social"
                 target="_blank"
                 rel="noreferrer"
+                aria-label="Lauren on Bluesky"
               >
-                ↗
+                <span aria-hidden="true">↗</span>
               </a>
             </div>
           </div>
@@ -182,10 +197,16 @@
       </section>
       <iframe
         class="resume-embed"
-        title="Lauren D. H. Forsyth resume"
+        title="Lauren's résumé (embedded Google document)"
+        loading="lazy"
         src="https://docs.google.com/document/d/e/2PACX-1vTrILgjXAOkLcMw0Ledbk2APXjM1xOJDdprNN5ALPffs4glGZoLpwlI7kTTl0eMTmXGAZmmCJZB4Lpa/pub?embedded=true"
       >
       </iframe>
+      <p class="resume-fallback">
+        <a href="https://docs.google.com/document/d/e/2PACX-1vTrILgjXAOkLcMw0Ledbk2APXjM1xOJDdprNN5ALPffs4glGZoLpwlI7kTTl0eMTmXGAZmmCJZB4Lpa/pub">
+          View Lauren's résumé in Google Docs
+        </a>
+      </p>
     </main>
     <footer>
       <span> © Lauren D. H. Forsyth </span>

@@ -17,19 +17,22 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
     <header class="site-header">
       <a class="brand" href="index.html" aria-label="Lauren D. H. Forsyth home">
-        <span class="brand-mark"> ✧ </span>
+        <span class="brand-mark" aria-hidden="true"> ✧ </span>
         Lauren D. H. Forsyth
       </a>
       <button
         class="menu-toggle"
-        aria-label="Toggle navigation"
+        type="button"
+        aria-label="Open main menu"
+        aria-controls="site-navigation"
         aria-expanded="false"
       >
-        ☰
+        <span aria-hidden="true">&#9776;</span>
       </button>
-      <nav class="nav" aria-label="Main navigation">
+      <nav class="nav" id="site-navigation" aria-label="Main navigation">
         <div class="nav-root">
           <a href="index.html"> Home </a>
           <a href="about.html"> About </a>
@@ -47,7 +50,11 @@
           </button>
           <div class="dropdown" id="projects-submenu">
             <div class="submenu-header">
-              <button class="submenu-back" type="button">
+              <button
+                class="submenu-back"
+                type="button"
+                aria-label="Back to main navigation"
+              >
                 <span aria-hidden="true">‹</span>
                 Back
               </button>
@@ -73,7 +80,11 @@
           </button>
           <div class="dropdown" id="games-submenu">
             <div class="submenu-header">
-              <button class="submenu-back" type="button">
+              <button
+                class="submenu-back"
+                type="button"
+                aria-label="Back to main navigation"
+              >
                 <span aria-hidden="true">‹</span>
                 Back
               </button>
@@ -87,7 +98,7 @@
         <a class="search" href="contact.html" aria-label="Contact"> ⌕ </a>
       </nav>
     </header>
-    <main>
+    <main id="main-content" tabindex="-1">
       <section class="project-hero">
         <div class="hero-inner">
           <div class="eyebrow">Selected work · E-commerce &amp; content</div>
@@ -122,12 +133,45 @@
         </div>
       </section>
       <section class="project-content">
-        <div class="project-branding">
+        <div class="project-intro">
           <img
             class="project-brand-logo"
             src="assets/CSG_Logo.png"
             alt="Cozy Stitches Guild logo"
           />
+          <div class="project-overview">
+            <h2>Project overview</h2>
+            <p>
+              Cozy Stitches Guild is a digital storefront and content platform
+              built to support a handmade fiber arts brand. I managed the complete
+              project lifecycle, from platform architecture and UI design to
+              search monetization and content-pipeline automation.
+            </p>
+            <p>
+              The platform bridges local, in-person craft sales with an online
+              audience, while bringing product inventory, educational content, and
+              brand information together in one professional hub.
+            </p>
+          </div>
+        </div>
+
+        <div class="objective-copy">
+          <h2>The objective</h2>
+          <p>The platform was designed to scale across three connected needs:</p>
+          <ol>
+            <li>
+              Showcase and sell handmade crochet, knit, and resin crafts.
+            </li>
+            <li>
+              Host a monetized, SEO-optimized blog that drives organic traffic.
+            </li>
+            <li>
+              Serve as a professional hub for local vendor events and market
+              appearances.
+            </li>
+          </ol>
+        </div>
+        <div class="project-branding objective-branding">
           <figure class="project-brand-card">
             <img
               src="assets/csg_businesscard_front.png"
@@ -142,34 +186,6 @@
             />
           </figure>
         </div>
-
-        <h2>Project overview</h2>
-        <p>
-          Cozy Stitches Guild is a digital storefront and content platform
-          built to support a handmade fiber arts brand. I managed the complete
-          project lifecycle, from platform architecture and UI design to
-          search monetization and content-pipeline automation.
-        </p>
-        <p>
-          The platform bridges local, in-person craft sales with an online
-          audience, while bringing product inventory, educational content, and
-          brand information together in one professional hub.
-        </p>
-
-        <h2>The objective</h2>
-        <p>The platform was designed to scale across three connected needs:</p>
-        <ol>
-          <li>
-            Showcase and sell handmade crochet, knit, and resin crafts.
-          </li>
-          <li>
-            Host a monetized, SEO-optimized blog that drives organic traffic.
-          </li>
-          <li>
-            Serve as a professional hub for local vendor events and market
-            appearances.
-          </li>
-        </ol>
 
         <h2>Technical implementation &amp; execution</h2>
         <h3>Platform architecture &amp; configuration</h3>

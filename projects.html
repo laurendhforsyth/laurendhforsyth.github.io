@@ -13,19 +13,22 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
     <header class="site-header">
       <a class="brand" href="index.html" aria-label="Lauren D. H. Forsyth home">
-        <span class="brand-mark"> ✧ </span>
+        <span class="brand-mark" aria-hidden="true"> ✧ </span>
         Lauren D. H. Forsyth
       </a>
       <button
         class="menu-toggle"
-        aria-label="Toggle navigation"
+        type="button"
+        aria-label="Open main menu"
+        aria-controls="site-navigation"
         aria-expanded="false"
       >
-        ☰
+        <span aria-hidden="true">&#9776;</span>
       </button>
-      <nav class="nav" aria-label="Main navigation">
+      <nav class="nav" id="site-navigation" aria-label="Main navigation">
         <div class="nav-root">
           <a href="index.html"> Home </a>
           <a href="about.html"> About </a>
@@ -43,7 +46,11 @@
           </button>
           <div class="dropdown" id="projects-submenu">
             <div class="submenu-header">
-              <button class="submenu-back" type="button">
+              <button
+                class="submenu-back"
+                type="button"
+                aria-label="Back to main navigation"
+              >
                 <span aria-hidden="true">‹</span>
                 Back
               </button>
@@ -69,7 +76,11 @@
           </button>
           <div class="dropdown" id="games-submenu">
             <div class="submenu-header">
-              <button class="submenu-back" type="button">
+              <button
+                class="submenu-back"
+                type="button"
+                aria-label="Back to main navigation"
+              >
                 <span aria-hidden="true">‹</span>
                 Back
               </button>
@@ -83,7 +94,7 @@
         <a class="search" href="contact.html" aria-label="Contact"> ⌕ </a>
       </nav>
     </header>
-    <main>
+    <main id="main-content" tabindex="-1">
       <section class="project-hero">
         <div class="hero-inner">
           <div class="eyebrow">Selected work</div>

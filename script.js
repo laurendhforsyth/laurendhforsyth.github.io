@@ -18,6 +18,10 @@ if (menuToggle && navigation) {
   menuToggle.addEventListener('click', () => {
     const isOpen = navigation.classList.toggle('open');
     menuToggle.setAttribute('aria-expanded', String(isOpen));
+    menuToggle.setAttribute(
+      'aria-label',
+      isOpen ? 'Close main menu' : 'Open main menu',
+    );
 
     if (!isOpen) {
       closeSubmenu();
@@ -30,6 +34,12 @@ if (menuToggle && navigation) {
       const heading = group?.querySelector('.submenu-header h2');
 
       if (!group || !heading) {
+        return;
+      }
+
+      if (toggle.getAttribute('aria-expanded') === 'true') {
+        closeSubmenu();
+        toggle.focus();
         return;
       }
 
@@ -56,11 +66,22 @@ if (menuToggle && navigation) {
   function closeMenu() {
     navigation.classList.remove('open');
     menuToggle.setAttribute('aria-expanded', 'false');
+    menuToggle.setAttribute('aria-label', 'Open main menu');
     closeSubmenu();
   }
 
   document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' && navigation.classList.contains('open')) {
+    if (event.key !== 'Escape') {
+      return;
+    }
+
+    if (navigation.classList.contains('show-submenu')) {
+      const openToggle = navigation.querySelector(
+        '.nav-submenu-toggle[aria-expanded="true"]',
+      );
+      closeSubmenu();
+      openToggle?.focus();
+    } else if (navigation.classList.contains('open')) {
       closeMenu();
       menuToggle.focus();
     }
