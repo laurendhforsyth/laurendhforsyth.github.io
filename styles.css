@@ -344,6 +344,9 @@ main:focus {
   height: 5px;
   background: var(--accent);
 }
+.portfolio-glance .card:before {
+  display: none;
+}
 .card:hover {
   transform: translateY(-5px);
   border-color: #b8cbd8;
