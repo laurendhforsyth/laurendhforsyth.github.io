@@ -412,6 +412,40 @@ main:focus {
 .contact-links-start {
   justify-content: flex-start;
 }
+.contact-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 760px;
+  margin: 0;
+  padding: 6px 26px;
+  list-style: none;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  box-shadow: 0 12px 28px rgba(16, 42, 67, .07);
+}
+.contact-card li {
+  display: grid;
+  grid-template-columns: minmax(80px, 120px) minmax(0, 1fr);
+  align-items: center;
+  gap: 18px;
+  padding: 20px 0;
+}
+.contact-card li + li {
+  border-top: 1px solid var(--line);
+}
+.contact-card strong {
+  color: var(--navy);
+  font: 700 12px var(--sans);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.contact-card a {
+  color: var(--accent-dark);
+  font-weight: 700;
+  overflow-wrap: anywhere;
+  text-underline-offset: 3px;
+}
 .card strong {
   color: var(--navy);
   font: 700 16px/1.45 var(--serif);
